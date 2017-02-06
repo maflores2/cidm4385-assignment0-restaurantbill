@@ -1,0 +1,42 @@
+<html ng-app="RestaurantCalculator">
+    <head>
+        <title>Bill Calculator</title>
+        <h1>Restaurant Bill Calculator</h1>
+    </head>
+    <body>
+        <div ng-controller="RestaurantCalculatorConverter as rcc">
+            <input type="checkbox" ng-model="rcc.add_tax" />Add Tax
+            <input type="checkbox" ng-model="rcc.total_bill" />Show Total
+            <p>
+                Subtotal: <input type="text" ng-model="rcc.cost" placeholder="subtotal" /><br/>
+                Tip: <select ng-model="rcc.tipping" ng-options="s.name for s in rcc.tipping_options"></select>
+            </p>
+            <p>
+                This is your cost: {{rcc.cost|currency}}
+            </p>
+            <p>
+                This is your tax: {{rcc.tax|currency}}
+            </p>
+            <p ng-show="cc.total_bill">
+                This is your total: {{rcc.total|currency}}
+            </p>
+            <p>
+                This is your tip amount: {{rcc.tippingTotal|currency}}
+            </p>
+            <p ng-show="rcc.total_bill">
+                <button ng-click="rcc.add()">Add</button>
+                Your running total is {{rcc.final_bill|currency}}
+            </p>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <script src="angular.js"></script>
+        <script src="app.js"></script>	
+    </body>
+</html>
